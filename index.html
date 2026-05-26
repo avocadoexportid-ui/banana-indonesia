@@ -1,209 +1,783 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banana Indonesia - High Quality Bananas for The World</title>
-<link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Banana Indonesia</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:
+      linear-gradient(
+        90deg,
+        #0b5f27 0%,
+        #5f2d05 55%,
+        #8a3e09 100%
+      );
+      color:white;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:999;
+      background:rgba(20,20,20,0.35);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-wrapper{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:28px;
+      font-weight:700;
+    }
+
+    .logo-circle{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#ffe600,#ff8c00);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-weight:700;
+    }
+
+    .menu{
+      display:flex;
+      gap:34px;
+      align-items:center;
+    }
+
+    .menu a{
+      font-size:15px;
+      opacity:.9;
+    }
+
+    .contact-btn{
+      background:linear-gradient(90deg,#ffd000,#ff8a00);
+      color:#fff;
+      padding:12px 24px;
+      border-radius:10px;
+      font-weight:600;
+    }
+
+    /* HERO */
+
+    .hero{
+      padding-top:140px;
+      padding-bottom:80px;
+      min-height:100vh;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 24px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.15);
+      background:rgba(255,255,255,0.05);
+      margin-bottom:30px;
+      color:#ffd000;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .hero h1{
+      font-size:78px;
+      line-height:1.05;
+      font-weight:800;
+      margin-bottom:25px;
+    }
+
+    .hero h1 span{
+      background:linear-gradient(90deg,#ffe600,#ff8a00);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      font-size:20px;
+      line-height:1.8;
+      color:#e3e3e3;
+      max-width:700px;
+      margin-bottom:35px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:18px;
+      margin-bottom:60px;
+    }
+
+    .btn-primary{
+      background:linear-gradient(90deg,#ffd000,#ff7a00);
+      color:white;
+      padding:18px 34px;
+      border-radius:12px;
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .btn-secondary{
+      background:#02062b;
+      color:white;
+      padding:18px 34px;
+      border-radius:12px;
+      font-weight:600;
+    }
+
+    .hero-image img{
+      width:100%;
+      border-radius:24px;
+      object-fit:cover;
+      box-shadow:0 20px 50px rgba(0,0,0,.35);
+    }
+
+    /* STATS */
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:30px;
+      margin-top:40px;
+    }
+
+    .stat-box{
+      text-align:center;
+    }
+
+    .stat-box i{
+      font-size:42px;
+      color:#ffd000;
+      margin-bottom:15px;
+    }
+
+    .stat-box h2{
+      font-size:44px;
+      font-weight:700;
+    }
+
+    .stat-box p{
+      font-size:15px;
+      color:#ddd;
+    }
+
+    /* SECTION */
+
+    section{
+      padding:110px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title h2{
+      font-size:56px;
+      margin-bottom:18px;
+      font-weight:800;
+    }
+
+    .section-title p{
+      font-size:18px;
+      color:#ddd;
+      max-width:700px;
+      margin:auto;
+      line-height:1.7;
+    }
+
+    /* WHY CHOOSE */
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+    }
+
+    .feature-card{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.1);
+      padding:40px 30px;
+      border-radius:22px;
+      backdrop-filter:blur(10px);
+      transition:.3s;
+    }
+
+    .feature-card:hover{
+      transform:translateY(-8px);
+      background:rgba(255,255,255,0.09);
+    }
+
+    .feature-card i{
+      font-size:42px;
+      color:#ffd000;
+      margin-bottom:20px;
+    }
+
+    .feature-card h3{
+      font-size:28px;
+      margin-bottom:15px;
+    }
+
+    .feature-card p{
+      color:#ddd;
+      line-height:1.8;
+    }
+
+    /* PRODUCTS */
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+    }
+
+    .product-card{
+      background:rgba(255,255,255,0.06);
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .product-card img{
+      width:100%;
+      height:260px;
+      object-fit:cover;
+    }
+
+    .product-content{
+      padding:28px;
+    }
+
+    .product-content h3{
+      font-size:30px;
+      margin-bottom:15px;
+    }
+
+    .product-content p{
+      color:#ddd;
+      line-height:1.8;
+      margin-bottom:20px;
+    }
+
+    .tags{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:25px;
+    }
+
+    .tag{
+      background:rgba(255,208,0,.15);
+      color:#ffd000;
+      padding:8px 14px;
+      border-radius:999px;
+      font-size:13px;
+    }
+
+    /* CONTACT */
+
+    .contact-boxes{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+      margin-top:50px;
+    }
+
+    .contact-card{
+      background:rgba(255,255,255,0.05);
+      border-radius:22px;
+      padding:45px 30px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .contact-card i{
+      font-size:44px;
+      color:#ffd000;
+      margin-bottom:20px;
+    }
+
+    .contact-card h3{
+      font-size:28px;
+      margin-bottom:15px;
+    }
+
+    .contact-card p{
+      color:#ddd;
+      line-height:1.8;
+    }
+
+    .cta{
+      margin-top:50px;
+      text-align:center;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:70px 0 40px;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:40px;
+    }
+
+    footer h4{
+      font-size:22px;
+      margin-bottom:20px;
+    }
+
+    footer p,
+    footer li{
+      color:#ddd;
+      line-height:2;
+      list-style:none;
+    }
+
+    .copyright{
+      margin-top:50px;
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:25px;
+      text-align:center;
+      color:#ccc;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:992px){
+
+      .hero-grid,
+      .features,
+      .products,
+      .contact-boxes,
+      .footer-grid,
+      .stats{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:54px;
+      }
+
+      .menu{
+        display:none;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .section-title h2{
+        font-size:42px;
+      }
+
+      .hero{
+        padding-top:120px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <nav class="navbar">
-    <div class="nav-left">
-      <img src="assets/logo.png" alt="Logo" class="logo">
-      <span>Banana Indonesia</span>
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="container nav-wrapper">
+
+      <div class="logo">
+        <div class="logo-circle">🍌</div>
+        Banana Indonesia
+      </div>
+
+      <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">Product</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+
+        <a href="#" class="contact-btn">
+          Contact Us
+        </a>
+      </div>
+
     </div>
-    <ul class="nav-menu">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#product">Product</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#contact" class="btn-contact">Contact Us</a></li>
-    </ul>
-    <div class="hamburger">☰</div>
   </nav>
-</header>
 
-<section id="home" class="hero">
-  <div class="container">
-    <span class="badge">★ Trusted Banana Export #1</span>
-    <h1>High Quality Bananas<br><span class="highlight">for The World</span></h1>
-    <p>Presented premium Indonesian bananas to the international market with the best quality standards and trusted export services.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Buy Now ></a>
-      <a href="#about" class="btn-secondary">Learn More</a>
-    </div>
-    <div class="stats">
-      <div><img src="https://img.icons8.com/ios-filled/50/FFD700/globe.png"/><h3>25+</h3><p>Country of Destination</p></div>
-      <div><img src="https://img.icons8.com/ios-filled/50/FFD700/box.png"/><h3>500+</h3><p>Ton/Month</p></div>
-      <div><img src="https://img.icons8.com/ios-filled/50/FFD700/user-group-man-woman.png"/><h3>100+</h3><p>Satisfied Client</p></div>
-      <div class="stat-desktop"><img src="https://img.icons8.com/ios-filled/50/FFD700/medal.png"/><h3>1+</h3><p>Years of Experience</p></div>
-    </div>
-    <img src="assets/banana1.jpg" alt="Bananas" class="hero-img">
-  </div>
-</section>
+  <!-- HERO -->
 
-<section class="why-us">
-  <div class="container">
-    <h2>Why Choose Us?</h2>
-    <p class="subtitle">Our Commitment to Quality and Customer Satisfaction makes us to The First Choice for Banana Exports</p>
-    <div class="cards">
-      <div class="card">
-        <img src="https://img.icons8.com/ios-filled/50/FFD700/shield.png"/>
-        <h3>Guaranteed Quality</h3>
-        <p>Each Banana is Selected through Strict Quality Control with International Standards</p>
-      </div>
-      <div class="card">
-        <img src="https://img.icons8.com/ios-filled/50/FFD700/delivery.png"/>
-        <h3>Fast Delivery</h3>
-        <p>Integrated Worldwide Logistics System for On-Time Delivery</p>
-      </div>
-      <div class="card">
-        <img src="https://img.icons8.com/ios-filled/50/FFD700/globe.png"/>
-        <h3>Global Reach</h3>
-        <p>Serving more than 25 countries with an Extensive Distribution Network</p>
-      </div>
-    </div>
-  </div>
-</section>
+  <section class="hero">
+    <div class="container">
 
-<section id="product" class="products">
-  <div class="container">
-    <h2>Our Superior Products</h2>
-    <p class="subtitle">Various Types of Premium Quality Bananas ready for The International Market</p>
-    <div class="product-grid">
-      <div class="product-card">
-        <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400')">
-          <span class="tag">Premium</span>
-        </div>
-        <div class="product-info">
-          <h3>Cavendish Banana</h3>
-          <p>High Quality of Bananas with Sweet Taste and Perfect Texture</p>
-          <div class="tags">
-            <span>Organic</span><span>Fresh</span><span>Export Quality</span>
+      <div class="badge">
+        <i class="fa-regular fa-star"></i>
+        Trusted Banana Export #1
+      </div>
+
+      <div class="hero-grid">
+
+        <div>
+
+          <h1>
+            High Quality Bananas
+            <span>for The World</span>
+          </h1>
+
+          <p>
+            Presented premium Indonesian bananas to the international market with the best quality standards and trusted export services.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a href="#" class="btn-primary">
+              Buy Now
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="#" class="btn-secondary">
+              Learn More
+            </a>
+
           </div>
-          <button class="btn-order">Order</button>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img" style="background-image: url('https://uploads.onecompiler.io/44pec6z28/44pe8bcdg/IMG_1530.jpeg')">
-          <span class="tag">Premium</span>
-        </div>
-        <div class="product-info">
-          <h3>Plantain</h3>
-          <p>Large bananas with a distinctive aroma and authentic taste</p>
-          <div class="tags">
-            <span>Large Size</span><span>Distinctive Aroma</span><span>Premium</span>
+
+          <div class="stats">
+
+            <div class="stat-box">
+              <i class="fa-solid fa-globe"></i>
+              <h2>25+</h2>
+              <p>Country of Destination</p>
+            </div>
+
+            <div class="stat-box">
+              <i class="fa-solid fa-cube"></i>
+              <h2>500+</h2>
+              <p>Ton/Month</p>
+            </div>
+
+            <div class="stat-box">
+              <i class="fa-solid fa-users"></i>
+              <h2>100+</h2>
+              <p>Satisfied Client</p>
+            </div>
+
+            <div class="stat-box">
+              <i class="fa-solid fa-award"></i>
+              <h2>1+</h2>
+              <p>Years Experience</p>
+            </div>
+
           </div>
-          <button class="btn-order">Order</button>
+
         </div>
+
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?q=80&w=1200&auto=format&fit=crop" alt="">
+        </div>
+
       </div>
-      <div class="product-card">
-        <div class="product-img" style="background-image: url('https://i.ibb.co.com/TD5FYT07/IMG-1529.webp')">
-          <span class="tag">Premium</span>
+
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Why Choose Us?</h2>
+        <p>
+          Our commitment to quality and customer satisfaction makes us the first choice for banana exports.
+        </p>
+      </div>
+
+      <div class="features">
+
+        <div class="feature-card">
+          <i class="fa-solid fa-shield"></i>
+          <h3>Guaranteed Quality</h3>
+          <p>
+            Each banana is selected through strict quality control with international standards.
+          </p>
         </div>
-        <div class="product-info">
-          <h3>Burro Banana</h3>
-          <p>Traditional banana with natural sweetness, suitable for the premium market</p>
-          <div class="tags">
-            <span>Traditional</span><span>Natural Sweetness</span><span>Exclusive</span>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-truck"></i>
+          <h3>Fast Delivery</h3>
+          <p>
+            Integrated worldwide logistics system for on-time delivery.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-earth-asia"></i>
+          <h3>Global Reach</h3>
+          <p>
+            Serving more than 25 countries with an extensive distribution network.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Our Superior Products</h2>
+        <p>
+          Various types of premium quality bananas ready for the international market.
+        </p>
+      </div>
+
+      <div class="products">
+
+        <div class="product-card">
+
+          <img src="https://images.unsplash.com/photo-1603833665858-e61d17a86224?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="product-content">
+
+            <h3>Cavendish Banana</h3>
+
+            <p>
+              High quality bananas with sweet taste and perfect texture.
+            </p>
+
+            <div class="tags">
+              <div class="tag">Organic</div>
+              <div class="tag">Fresh</div>
+              <div class="tag">Export Quality</div>
+            </div>
+
+            <a href="#" class="btn-primary">
+              Order
+            </a>
+
           </div>
-          <button class="btn-order">Order</button>
+
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="about" class="about">
-  <div class="container">
-    <div class="stats stats-desktop">
-      <div><img src="https://img.icons8.com/ios-filled/50/FFD700/globe.png"/><h3>25+</h3><p>Country of Destination</p></div>
-      <div><img src="https://img.icons8.com/ios-filled/50/FFD700/box.png"/><h3>500+</h3><p>Ton/Month</p></div>
-      <div><img src="https://img.icons8.com/ios-filled/50/FFD700/user-group-man-woman.png"/><h3>100+</h3><p>Satisfied Client</p></div>
-      <div><img src="https://img.icons8.com/ios-filled/50/FFD700/medal.png"/><h3>1+</h3><p>Years of Experience</p></div>
-    </div>
-    <img src="assets/farm.jpg" alt="Banana Farm" class="about-img">
-    <h2>About Banana Indonesia</h2>
-    <p>With over 1 years of experience in the banana export industry, we have built a reputation as a supplier of high quality bananas to the international market.</p>
-    <p>We work with the best local farmers in Indonesia to ensure every banana we export meets the highest international quality standards.</p>
-    <ul>
-      <li>• International Organic Certification</li>
-      <li>• High Standar Storage Facilities</li>
-      <li>• Experienced Quality Control Team</li>
-      <li>• Global Distribution Network</li>
-    </ul>
-    <a href="#contact" class="btn-primary">Learn More ></a>
-  </div>
-</section>
+        <div class="product-card">
 
-<section id="contact" class="contact">
-  <div class="container">
-    <h2>Contact Us</h2>
-    <p class="subtitle">Ready to serve needs of your banana export with the best service</p>
-    <div class="contact-cards">
-      <div class="contact-card">
-        <img src="https://img.icons8.com/ios-filled/50/FFD700/phone.png"/>
-        <h3>Telephone</h3>
-        <p>+62 853 8589 7124</p>
-        <small>Monday - Friday, 8a.m - 5p.m</small>
-      </div>
-      <div class="contact-card">
-        <img src="https://img.icons8.com/ios-filled/50/FFD700/email.png"/>
-        <h3>Email</h3>
-        <p>info@bananaindonesia.com</p>
-      </div>
-      <div class="contact-card">
-        <img src="https://img.icons8.com/ios-filled/50/FFD700/marker.png"/>
-        <h3>Address</h3>
-        <p>Surabaya-East Java, Indonesia</p>
-      </div>
-    </div>
-    <button class="btn-primary btn-center">Start Collaborate with Us ></button>
-  </div>
-</section>
+          <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?q=80&w=1200&auto=format&fit=crop">
 
-<footer>
-  <div class="container footer-grid">
-    <div>
-      <div class="footer-logo">
-        <img src="assets/logo.png" alt="Logo">
-        <span>Banana Indonesia</span>
-      </div>
-      <p>Trusted banana export company with the best quality commitment for the international market.</p>
-    </div>
-    <div>
-      <h4>Product</h4>
-      <ul>
-        <li>Cavendish Banana</li>
-        <li>Plantain</li>
-        <li>Burro Banana</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Service</h4>
-      <ul>
-        <li>International Export</li>
-        <li>Quality Control</li>
-        <li>Logistics & Delivery</li>
-        <li>Business Consultation</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Contact</h4>
-      <ul>
-        <li>+62 853 8589 7124</li>
-        <li>info@bananaindonesia.com</li>
-        <li>Surabaya-East Java, Indonesia</li>
-      </ul>
-    </div>
-  </div>
-  <div class="copyright">© 2025 Banana Indonesia. All rights reserved.</div>
-</footer>
+          <div class="product-content">
 
-<script src="script.js"></script>
+            <h3>Plantain Banana</h3>
+
+            <p>
+              Large bananas with a distinctive aroma and authentic taste.
+            </p>
+
+            <div class="tags">
+              <div class="tag">Large Size</div>
+              <div class="tag">Premium</div>
+            </div>
+
+            <a href="#" class="btn-primary">
+              Order
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="product-card">
+
+          <img src="https://images.unsplash.com/photo-1543218024-57a70143c369?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="product-content">
+
+            <h3>Burro Banana</h3>
+
+            <p>
+              Traditional banana with natural sweetness for premium export market.
+            </p>
+
+            <div class="tags">
+              <div class="tag">Traditional</div>
+              <div class="tag">Exclusive</div>
+            </div>
+
+            <a href="#" class="btn-primary">
+              Order
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>
+          Ready to serve your banana export needs with the best service.
+        </p>
+      </div>
+
+      <div class="contact-boxes">
+
+        <div class="contact-card">
+          <i class="fa-solid fa-phone"></i>
+          <h3>Telephone</h3>
+          <p>+62 853 8589 7124</p>
+          <p>Monday - Friday, 8 a.m - 5 p.m</p>
+        </div>
+
+        <div class="contact-card">
+          <i class="fa-solid fa-envelope"></i>
+          <h3>Email</h3>
+          <p>info@bananaindonesia.com</p>
+        </div>
+
+        <div class="contact-card">
+          <i class="fa-solid fa-location-dot"></i>
+          <h3>Address</h3>
+          <p>Surabaya - East Java, Indonesia</p>
+        </div>
+
+      </div>
+
+      <div class="cta">
+        <a href="#" class="btn-primary">
+          Start Collaborate With Us
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <div class="logo" style="margin-bottom:20px;">
+            <div class="logo-circle">🍌</div>
+            Banana Indonesia
+          </div>
+
+          <p>
+            Trusted banana export company with the best quality commitment for the international market.
+          </p>
+        </div>
+
+        <div>
+          <h4>Product</h4>
+          <ul>
+            <li>Cavendish Banana</li>
+            <li>Plantain</li>
+            <li>Burro Banana</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Service</h4>
+          <ul>
+            <li>International Export</li>
+            <li>Quality Control</li>
+            <li>Logistics & Delivery</li>
+            <li>Business Consultation</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>+62 853 8589 7124</li>
+            <li>info@bananaindonesia.com</li>
+            <li>Surabaya, Indonesia</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        © 2025 Banana Indonesia. All rights reserved.
+      </div>
+
+    </div>
+
+  </footer>
+
 </body>
 </html>
